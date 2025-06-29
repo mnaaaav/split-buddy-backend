@@ -1,3 +1,4 @@
+
 # SplitBuddy Backend
 
 A microservices-based backend application for SplitBuddy, a group expense splitting platform.  
@@ -28,7 +29,7 @@ This backend consists of two Spring Boot microservices:
 SplitBuddy helps groups track shared expenses, calculate each member’s fair share, and determine who owes whom.  
 The backend is designed as two microservices communicating via REST:
 
-- **Group Service:** Manages users and groups.
+- **Group Service:** Manages users and groups.  
 - **Settlement Service:** Manages expenses, calculates totals, and computes settlements.
 
 ---
@@ -52,108 +53,114 @@ The backend is designed as two microservices communicating via REST:
 |  Group Service   | <--------------------> | Settlement Service  |
 | (User & Group)   |                        | (Expenses & Settlements) |
 +------------------+                        +---------------------+
+````
+
 Each service is an independent Spring Boot application.
 
-Group Service runs on port 9090.
+* Group Service runs on port 9090.
+* Settlement Service runs on port 8082.
+* Uses Spring Data JPA for persistence.
+* RESTTemplate used for inter-service communication.
 
-Settlement Service runs on port 8082.
+---
 
-Uses Spring Data JPA for persistence.
+## Technologies Used
 
-RESTTemplate used for inter-service communication.
+* Java 17
+* Spring Boot
+* Spring Data JPA
+* Spring Security (Basic config)
+* Swagger/OpenAPI for API docs
+* Maven for build management
+* H2 (or your choice) database for development
+* Git for version control
 
-Technologies Used
-Java 17
+---
 
-Spring Boot
+## Setup & Installation
 
-Spring Data JPA
-
-Spring Security (Basic config)
-
-Swagger/OpenAPI for API docs
-
-Maven for build management
-
-H2 (or your choice) database for development
-
-Git for version control
-
-Setup & Installation
 Clone the repo:
 
-bash
-Copy
-Edit
+```bash
 git clone https://github.com/mnaaaav/split-buddy-backend.git
 cd split-buddy-backend
+```
+
 Build each service separately using Maven:
 
-bash
-Copy
-Edit
+```bash
 cd group-service/group-service
 mvn clean install
 cd ../../settlement-service
 mvn clean install
-Configure your database settings in each service's application.properties.
+```
 
-How to Run
+Configure your database settings in each service's `application.properties`.
+
+---
+
+## How to Run
+
 Run Group Service:
 
-bash
-Copy
-Edit
+```bash
 cd group-service/group-service
 mvn spring-boot:run
+```
+
 Run Settlement Service:
 
-bash
-Copy
-Edit
+```bash
 cd settlement-service
 mvn spring-boot:run
+```
+
 Access Swagger UI for each service:
 
-Group Service: http://localhost:9090/swagger-ui/index.html
+* Group Service: [http://localhost:9090/swagger-ui/index.html](http://localhost:9090/swagger-ui/index.html)
+* Settlement Service: [http://localhost:8082/swagger-ui/index.html](http://localhost:8082/swagger-ui/index.html)
 
-Settlement Service: http://localhost:8082/swagger-ui/index.html
+---
 
-API Endpoints
-Group Service
-/groups - CRUD for groups
+## API Endpoints
 
-/users - CRUD for users
+**Group Service**
 
-/groups/{id}/users - Get users in a group
+* `/groups` - CRUD for groups
+* `/users` - CRUD for users
+* `/groups/{id}/users` - Get users in a group
 
-Settlement Service
-/expenses - Manage expenses
+**Settlement Service**
 
-/settlements/group/{groupId}/summary - Get settlement summary for a group
+* `/expenses` - Manage expenses
+* `/settlements/group/{groupId}/summary` - Get settlement summary for a group
+* `/settlements/group/{groupId}/debts` - Calculate debts between users
 
-/settlements/group/{groupId}/debts - Calculate debts between users
+---
 
-Swagger Documentation
+## Swagger Documentation
+
 Both microservices include Swagger UI for API testing and documentation. Visit:
 
-Group Service: http://localhost:9090/swagger-ui/index.html
+* Group Service: [http://localhost:9090/swagger-ui/index.html](http://localhost:9090/swagger-ui/index.html)
+* Settlement Service: [http://localhost:8082/swagger-ui/index.html](http://localhost:8082/swagger-ui/index.html)
 
-Settlement Service: http://localhost:8082/swagger-ui/index.html
+---
 
-Future Improvements
-Add authentication and authorization with JWT.
+## Future Improvements
 
-Frontend integration for user-friendly UI.
+* Add authentication and authorization with JWT.
+* Frontend integration for user-friendly UI.
+* Support for multiple currencies.
+* Notification system for reminders.
+* More comprehensive unit and integration tests.
 
-Support for multiple currencies.
+---
 
-Notification system for reminders.
+## Author
 
-More comprehensive unit and integration tests.
-
-Author
 Manav Goel
-Email: desktop14103@gmail.com
-GitHub: mnaaaav
+Email: [desktop14103@gmail.com](mailto:desktop14103@gmail.com)
+GitHub: [mnaaaav](https://github.com/mnaaaav)
+
 
