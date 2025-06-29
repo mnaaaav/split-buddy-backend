@@ -1,0 +1,15 @@
+# Ignore build output
+target/
+
+# Ignore IDE settings
+.idea/
+.classpath
+.project
+.settings/
+
+# Ignore logs and temp files
+*.log
+*.tmp
+
+# Ignore IntelliJ IDEA project files
+*.iml
