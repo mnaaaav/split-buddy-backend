@@ -19,6 +19,7 @@ This backend consists of two Spring Boot microservices:
 - [How to Run](#how-to-run)  
 - [API Endpoints](#api-endpoints)  
 - [Swagger Documentation](#swagger-documentation)  
+- [Front End](#front-end)  
 - [Future Improvements](#future-improvements)  
 - [Author](#author)
 
@@ -146,6 +147,15 @@ Both microservices include Swagger UI for API testing and documentation. Visit:
 * Settlement Service: [http://localhost:8082/swagger-ui/index.html](http://localhost:8082/swagger-ui/index.html)
 
 ---
+## FrontEnd
+A static HTML front end is served by the Settlement Service at http://localhost:8082.
+Features:Forms to add users, groups, members, and expenses.
+Displays group members, expenses, and settlement summaries.
+
+Located in settlement-service/src/main/resources/static/ (index.html, styles.css, script.js).
+Uses Bootstrap for styling and Axios for API calls.
+
+
 
 ## Future Improvements
 

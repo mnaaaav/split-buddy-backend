@@ -1,5 +1,5 @@
-package com.splitbuddy.group_service.entity.model;
 
+package com.splitbuddy.group_service.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
